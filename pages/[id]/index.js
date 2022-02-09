@@ -20,6 +20,10 @@ const Post = ({ post }) => {
     }
   }
 
+  const commentRedirect = async () => {
+    router.push(`./comments/${post._id}`)
+  }
+
   const redirect = async () => {
     router.push(`./${post._id}/edit`)
   }
@@ -32,6 +36,13 @@ const Post = ({ post }) => {
         <div className="mb-10 text-center text-sm" key={post._id}>
           <p className="mb-10 text-5xl font-medium text-black">{post.title}</p>
           <p className="text-2xl ">{post.text}</p>
+          <button
+            type="button"
+            className="rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+            onClick={commentRedirect}
+          >
+            Consulter les commentaires
+          </button>
           <button
             type="button"
             className="rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
